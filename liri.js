@@ -2,9 +2,6 @@ var getKeys = require("./keys.js");
 var myKeys = getKeys.twitterKeys
 var action = process.argv[2];
 
-// for (var key in myKeys) {
-//   console.log("The " + key + " is " + myKeys[key] + ".");
-// }
 switch (action) {
   case "my-tweets":
     mytweets();
@@ -39,7 +36,22 @@ client.get('statuses/user_timeline', params, function(error, tweets, response) {
 }
 
 function spotify(){
+var spotify = require('spotify');
+var song = process.argv[3];
+ 
+spotify.search({ type: 'track', query: song }, function(err, data) {
+    if ( err ) {
+        console.log('Error occurred: ' + err);
+        return;
+    }
+ 
+    // Do something with 'data' 
+    console.log(data.tracks.items[0].artists[0].name);
+    console.log(data.tracks.items[0].name);
+    console.log(data.tracks.items[0].preview_url);
+    console.log(data.tracks.items[0].album.name);
 
+});
 }
 
 function movie(){

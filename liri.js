@@ -123,6 +123,7 @@ if (movieName === ""){
   else {
   request(queryUrl, function(error, response, body) {
   if (!error && response.statusCode === 200) {
+    console.log("-------------------------------");
     console.log("Movie Title: " + JSON.parse(body).Title);
     console.log("Release Year: " + JSON.parse(body).Year);
     console.log("IMDB Rating: " + JSON.parse(body).imdbRating);
@@ -132,6 +133,7 @@ if (movieName === ""){
     console.log("Actors: " + JSON.parse(body).Actors);
     console.log("Rotten Tomatoes Rating: " + JSON.parse(body).tomatoRating);
     console.log("Rotten Tomatoes URL: " + JSON.parse(body).tomatoURL);
+    console.log("-------------------------------")
   }
 });
 }
